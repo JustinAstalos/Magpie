@@ -34,14 +34,32 @@ public class Magpie3 {
 		} else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0) {
+				|| findKeyword(statement, "brother") >= 0) 
+		{
 			response = "Tell me more about your family.";
-		} else {
+		}	
+		else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0) 
+		{
+			response = "Tell me more about your pets.";
+		} 
+		else if (findKeyword(statement, "cat") >= 0) {
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword(statement, "hungry") >= 0) {
+			response = "What kind of food do you like?";
+		}
+		else if (findKeyword(statement, "meme") >= 0) {
+			response = "F";
+		}
+		else if (findKeyword(statement, "holiday") >= 0) {
+			response = "I love Christmas, it is my favorite.";
+		}
+		else {
 			response = getRandomResponse();
 		}
 		return response;
 	}
-
 	/**
 	 * Search for one word in phrase. The search is not case sensitive. This
 	 * method will check that the given goal is not a substring of a longer
@@ -77,27 +95,24 @@ public class Magpie3 {
 				after = phrase.substring(psn + goal.length(),
 						psn + goal.length() + 1);
 			}
-
+			System.out.println(psn + " " + before + " " + after);
 			// If before and after aren't letters, we've
 			// found the word
-			if (((before.compareTo("a") < 0) || (before.compareTo("z") > 0)) // before
-																				// is
-																				// not
-																				// a
-																				// letter
-					&& ((after.compareTo("a") < 0) || (after.compareTo("z") > 0))) {
+			if (((before.compareTo("a") < 0) 
+			|| (before.compareTo("z") > 0)) 
+			&& ((after.compareTo("a") < 0) 
+			|| (after.compareTo("z") > 0))) {// before is not a letter
 				return psn;
 			}
-
+			System.out.println(psn + " " + before + " " + after);
 			// The last position didn't work, so let's find
 			// the next, if there is one.
 			psn = phrase.indexOf(goal, psn + 1);
-
 		}
 
 		return -1;
 	}
-
+	
 	/**
 	 * Search for one word in phrase. The search is not case sensitive. This
 	 * method will check that the given goal is not a substring of a longer
