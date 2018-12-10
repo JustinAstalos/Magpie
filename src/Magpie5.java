@@ -249,7 +249,8 @@ public class Magpie5 {
 		return randomResponses[r.nextInt(randomResponses.length)];
 	}
 
-	private String[] randomResponses = { "Interesting, tell me more", "Hmmm.",
-			"Do you really think so?", "You don't say." };
+	private String[] randomResponses = { "Interesting, tell me more.", "Hmmm.",
+			"Do you really think so?", "You don't say.", "Wowwwww.", "Okay then.", "Why?",
+			"They really did surgery on a grape" };
 
 }
